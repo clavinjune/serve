@@ -16,7 +16,7 @@ FROM golang:1.17.2-alpine3.14 as builder
 LABEL builder="true"
 RUN mkdir -p /build/src
 
-FROM gcr.io/distroless/base
+FROM gcr.io/distroless/static
 WORKDIR /app
 COPY --from=builder /build/src src
 COPY serve .
