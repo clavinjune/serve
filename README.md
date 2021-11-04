@@ -5,7 +5,7 @@
 [![Registry](https://img.shields.io/static/v1?style=for-the-badge&label=Registry&message=ghcr.io&color=red&logo=linux-containers)](https://ghcr.io/clavinjune/serve)
 [![License](https://img.shields.io/github/license/ClavinJune/serve?style=for-the-badge)](https://github.com/ClavinJune/serve/blob/main/LICENSE)
 
-A Simple HTTP Server Built on Top of Go
+A Lightweight HTTP Server Built on Top of Go
 
 ## Run
 
@@ -23,32 +23,39 @@ A Simple HTTP Server Built on Top of Go
 
 ```bash
 # chmod +x serve_{version}_{os}_{arch}
-$ chmod +x serve_0.3.1_linux_amd64
-$ ./serve_0.3.1_linux_amd64 -v
-serve v0.3.1
+$ chmod +x serve_0.3.2_linux_amd64
+$ ./serve_0.3.2_linux_amd64 -v
+serve v0.3.2
 ```
 
 ### Via Go Install
 
 ```bash
 $ go install github.com/ClavinJune/serve@latest
-go: downloading github.com/ClavinJune/serve v0.3.1
+go: downloading github.com/ClavinJune/serve v0.3.2
 $ serve -v
-serve v0.3.1
+serve v0.3.2
 ```
 
 ### Via Go Run
 
 ```bash
 $ go run github.com/ClavinJune/serve@latest -v
-serve v0.3.1
+serve v0.3.2
 ```
 
 ### Via Docker
 
 ```bash
 $ docker run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v0.3.1
+serve v0.3.2
+```
+
+### Via Podman
+
+```bash
+$ podman run -it --rm ghcr.io/clavinjune/serve:latest -v
+serve v0.3.2
 ```
 
 ## Usage
@@ -68,7 +75,7 @@ Usage of serve:
 ## Example
 
 ```bash
-$ docker run -it --rm \
+$ podman run -it --rm \
 > -v /tmp/foo:/app/src \
 > -p 1313:1313 \
 > ghcr.io/clavinjune/serve:latest
