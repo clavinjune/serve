@@ -4,6 +4,8 @@
 [![Latest Release](https://img.shields.io/github/tag/ClavinJune/serve.svg?style=for-the-badge&logo=github)](https://github.com/ClavinJune/serve/releases/latest)
 [![License](https://img.shields.io/github/license/ClavinJune/serve?style=for-the-badge)](https://github.com/ClavinJune/serve/blob/main/LICENSE)
 
+[![Registry](https://img.shields.io/static/v1?style=for-the-badge&label=Container+Registry&message=ghcr.io&color=red&logo=linux-containers)](https://ghcr.io/clavinjune/serve)
+
 A Simple HTTP Server Built on Top of Go
 
 ## Run
@@ -56,4 +58,16 @@ Usage of serve:
   -r string
         root document which the server will serve (default ".")
   -s    serve single page application
+```
+
+## Example
+
+```bash
+$ docker run -it --rm -v /tmp/foo:/app/src -p 1313:1313 ghcr.io/clavinjune/serve:latest
+2021/11/04 06:32:19 listen and server /app/src/ at http://0.0.0.0:1313
+2021/11/04 06:32:23 / 46.107µs
+2021/11/04 06:32:23 /favicon.ico 78.868µs
+2021/11/04 06:32:40 /index.html 6.642µs
+2021/11/04 06:32:40 / 31.058µs
+2021/11/04 06:32:44 /foo/ 60.574µs
 ```
