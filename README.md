@@ -23,32 +23,32 @@ A Simple HTTP Server Built on Top of Go
 
 ```bash
 # chmod +x serve_{version}_{os}_{arch}
-$ chmod +x serve_0.3.0_linux_amd64
-$ ./serve_0.3.0_linux_amd64 -v
-serve v0.3.0
+$ chmod +x serve_0.3.1_linux_amd64
+$ ./serve_0.3.1_linux_amd64 -v
+serve v0.3.1
 ```
 
 ### Via Go Install
 
 ```bash
 $ go install github.com/ClavinJune/serve@latest
-go: downloading github.com/ClavinJune/serve v0.3.0
+go: downloading github.com/ClavinJune/serve v0.3.1
 $ serve -v
-serve v0.3.0
+serve v0.3.1
 ```
 
 ### Via Go Run
 
 ```bash
 $ go run github.com/ClavinJune/serve@latest -v
-serve v0.3.0
+serve v0.3.1
 ```
 
 ### Via Docker
 
 ```bash
 $ docker run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v0.3.0
+serve v0.3.1
 ```
 
 ## Usage

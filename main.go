@@ -31,7 +31,7 @@ import (
 )
 
 const (
-	version string = "v0.2.0"
+	version string = "v0.3.1"
 )
 
 var (
@@ -94,7 +94,7 @@ func main() {
 	server := mustGetServer(rootDir, *spaFlag)
 
 	go func() {
-		internal.LogF("listen and server %s/ at http://0.0.0.0:%d",
+		internal.LogF("listen and serve %s/ at http://0.0.0.0:%d",
 			rootDir,
 			*portFlag,
 		)
