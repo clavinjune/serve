@@ -28,7 +28,7 @@ $ ./serve_0.2.0_linux_amd64 -v
 serve v0.2.0
 ```
 
-### Via Golang Install
+### Via Go Install
 
 ```bash
 $ go install github.com/ClavinJune/serve@latest
@@ -77,7 +77,10 @@ Usage of serve:
 ## Example
 
 ```bash
-$ docker run -it --rm -v /tmp/foo:/app/src -p 1313:1313 ghcr.io/clavinjune/serve:latest
+$ docker run -it --rm \
+> -v /tmp/foo:/app/src \
+> -p 1313:1313 \
+> ghcr.io/clavinjune/serve:latest
 2021/11/04 06:32:19 listen and server /app/src/ at http://0.0.0.0:1313
 2021/11/04 06:32:23 / 46.107µs
 2021/11/04 06:32:23 /favicon.ico 78.868µs
