@@ -14,6 +14,8 @@
 
 .gitignore
 .golangci.yml
+.goreleaser.yml
+CNAME
 LICENSE
 Makefile
 tools.mk
