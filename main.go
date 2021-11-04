@@ -30,11 +30,16 @@ import (
 	"github.com/ClavinJune/serve/internal"
 )
 
+const (
+	version string = "v0.2.0"
+)
+
 var (
-	portFlag  *int
-	quietFlag *bool
-	rootFlag  *string
-	spaFlag   *bool
+	portFlag    *int
+	quietFlag   *bool
+	rootFlag    *string
+	spaFlag     *bool
+	versionFlag *bool
 )
 
 func init() {
@@ -42,6 +47,7 @@ func init() {
 	quietFlag = flag.Bool("q", false, "run server quietly")
 	rootFlag = flag.String("r", ".", "root document which the server will serve")
 	spaFlag = flag.Bool("s", false, "serve single page application")
+	versionFlag = flag.Bool("v", false, "print current version")
 	flag.Parse()
 }
 
@@ -76,6 +82,11 @@ func mustGetServer(rootDir string, isSpa bool) *http.Server {
 }
 
 func main() {
+	if *versionFlag {
+		fmt.Println("serve", version)
+		return
+	}
+
 	internal.LogSetQuite(*quietFlag)
 
 	rootDir := mustGetRootDirectory(*rootFlag)
