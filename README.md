@@ -23,27 +23,41 @@ A Simple HTTP Server Built on Top of Go
 
 ```bash
 # chmod +x serve_{version}_{os}_{arch}
-$ chmod +x serve_0.0.1_linux_amd64
-$ ./serve_0.0.1_linux_amd64 -h
+$ chmod +x serve_0.2.0_linux_amd64
+$ ./serve_0.2.0_linux_amd64 -v
+serve v0.2.0
 ```
 
 ### Via Golang Install
 
 ```bash
 $ go install github.com/ClavinJune/serve@latest
-$ serve -h
+go: downloading github.com/ClavinJune/serve v0.2.0
+$ serve -v
+serve v0.2.0
 ```
 
 ### Via Go Run
 
 ```bash
-$ go run github.com/ClavinJune/serve@latest -h
+$ go run github.com/ClavinJune/serve@latest -v
+serve v0.2.0
 ```
 
 ### Via Docker
 
 ```bash
-$ docker run -it --rm ghcr.io/clavinjune/serve:latest -h
+$ docker run -it --rm ghcr.io/clavinjune/serve:latest -v
+Unable to find image 'ghcr.io/clavinjune/serve:latest' locally
+latest: Pulling from clavinjune/serve
+e8614d09b7be: Already exists 
+c6f4d1a13b69: Already exists 
+93568a6738e5: Pull complete 
+48e5c4bdc3ac: Pull complete 
+bf85f5ad0df5: Pull complete 
+Digest: sha256:b1decd2cda017f209cd19f2315ef70bb78d58860241255cabd77705ade54654b
+Status: Downloaded newer image for ghcr.io/clavinjune/serve:latest
+serve v0.2.0
 ```
 
 ## Usage
@@ -57,6 +71,7 @@ Usage of serve:
   -r string
         root document which the server will serve (default ".")
   -s    serve single page application
+  -v    print current version
 ```
 
 ## Example
