@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM golang:1.17.2-alpine3.14 as builder
+FROM golang:1.17.3-alpine3.14 as builder
 LABEL builder="true"
 RUN mkdir -p /build/src
 
