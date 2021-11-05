@@ -30,7 +30,7 @@ jobs:
 
       - uses: actions/setup-go@v2
         with:
-          go-version: 1.17.2
+          go-version: 1.17.3
 
       - uses: actions/cache@v2
         with:
@@ -45,9 +45,6 @@ jobs:
         if: github.event_name == 'pull_request'
         run: make check
 
-      - if: startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push'
-        run: brew install upx
-
       - uses: docker/login-action@v1
         if: startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push'
         with:
@@ -56,7 +53,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - if: startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push'
-        run: make ci/release
+        run: |
+          brew install upx
+          make ci/release
       
       - uses: actions/upload-artifact@v2
         if: startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push'
