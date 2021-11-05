@@ -1,6 +1,7 @@
 # Serve
 
-[![Go Version](https://img.shields.io/static/v1?style=for-the-badge&label=Go+Version&message=1.17.2&color=blue&logo=go)](https://github.com/golang/go/releases/tag/go1.17.2)
+[![Go Version](https://img.shields.io/static/v1?style=for-the-badge&label=Go+Version&message=1.17.3&color=blue&logo=go)](https://github.com/golang/go/releases/tag/go1.17.3)
+[![Reference](https://img.shields.io/badge/reference-007d9c?style=for-the-badge&logo=go&logoColor=white&&labelColor=5c5c5c)](https://pkg.go.dev/github.com/ClavinJune/serve)
 [![Latest Release](https://img.shields.io/github/tag/ClavinJune/serve.svg?style=for-the-badge&logo=github)](https://github.com/ClavinJune/serve/releases/latest)
 [![Registry](https://img.shields.io/static/v1?style=for-the-badge&label=Registry&message=ghcr.io&color=red&logo=linux-containers)](https://ghcr.io/clavinjune/serve)
 [![License](https://img.shields.io/github/license/ClavinJune/serve?style=for-the-badge)](https://github.com/ClavinJune/serve/blob/main/LICENSE)
@@ -23,39 +24,39 @@ A Lightweight HTTP Server Built on Top of Go
 
 ```bash
 # chmod +x serve_{version}_{os}_{arch}
-$ chmod +x serve_0.3.2_linux_amd64
-$ ./serve_0.3.2_linux_amd64 -v
-serve v0.3.2
+$ chmod +x serve_0.3.6_linux_amd64
+$ ./serve_0.3.6_linux_amd64 -v
+serve v0.3.6
 ```
 
 ### Via Go Install
 
 ```bash
 $ go install github.com/ClavinJune/serve@latest
-go: downloading github.com/ClavinJune/serve v0.3.2
+go: downloading github.com/ClavinJune/serve v0.3.6
 $ serve -v
-serve v0.3.2
+serve v0.3.6
 ```
 
 ### Via Go Run
 
 ```bash
 $ go run github.com/ClavinJune/serve@latest -v
-serve v0.3.2
+serve v0.3.6
 ```
 
 ### Via Docker
 
 ```bash
 $ docker run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v0.3.2
+serve v0.3.6
 ```
 
 ### Via Podman
 
 ```bash
 $ podman run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v0.3.2
+serve v0.3.6
 ```
 
 ## Usage
