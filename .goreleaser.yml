@@ -44,7 +44,7 @@ dockers:
     - "--label=org.opencontainers.image.title={{.ProjectName}}"
     - "--label=org.opencontainers.image.version={{.Version}}"
     image_templates:
-      - "ghcr.io/clavinjune/serve:{{ .Tag }}"
+      - "ghcr.io/clavinjune/serve:{{ .Version }}"
       - "ghcr.io/clavinjune/serve:{{ .ShortCommit }}"
       - "ghcr.io/clavinjune/serve:latest"
     skip_push: auto
