@@ -14,6 +14,6 @@
 
 FROM gcr.io/distroless/static:latest
 WORKDIR /app
-COPY --from=builder /build/src src
+COPY src/ .
 COPY serve .
 ENTRYPOINT [ "/app/serve", "-r", "/app/src" ]
