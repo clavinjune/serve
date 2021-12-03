@@ -16,6 +16,7 @@
 .golangci.yml
 .goreleaser.yml
 CNAME
+Dockerfile
 LICENSE
 Makefile
 tools.mk

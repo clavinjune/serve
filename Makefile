@@ -64,3 +64,6 @@ fmt:
 
 release:
 	@GITHUB_TOKEN="${GITHUB_PAT}" go run $(releaser) release --rm-dist
+
+snapshot:
+	@GITHUB_TOKEN="${GITHUB_PAT}" go run $(releaser) release --rm-dist --snapshot
