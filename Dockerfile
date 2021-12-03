@@ -12,11 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM golang:1.17.3-alpine3.14 as builder
-LABEL builder="true"
-RUN mkdir -p /build/src
-
-FROM gcr.io/distroless/static
+FROM gcr.io/distroless/static:latest
 WORKDIR /app
 COPY --from=builder /build/src src
 COPY serve .

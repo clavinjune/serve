@@ -48,6 +48,8 @@ dockers:
       - "ghcr.io/clavinjune/serve:{{ .ShortCommit }}"
       - "ghcr.io/clavinjune/serve:latest"
     skip_push: auto
+    extra_files:
+    - src/
 changelog:
   sort: asc
   filters:
