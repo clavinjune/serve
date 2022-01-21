@@ -29,6 +29,7 @@
 # vendor/
 dist/
 out/
+src/
 
 serve
 serve.exe

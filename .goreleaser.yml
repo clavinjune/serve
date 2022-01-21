@@ -21,14 +21,26 @@ before:
   hooks:
     - make check
 builds:
-  - env:
+  - id: amd64
+    env:
       - CGO_ENABLED=0
     goarch:
       - amd64
-      - arm64
     goos:
       - linux
       - windows
+      - darwin
+    hooks:
+      post: upx -9 {{ .Path }}
+    ldflags:
+      - "-s -w"
+  - id: arm64
+    env:
+      - CGO_ENABLED=0
+    goarch:
+      - arm64
+    goos:
+      - linux
       - darwin
     hooks:
       post: upx -9 {{ .Path }}
