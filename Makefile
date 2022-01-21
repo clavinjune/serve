@@ -63,7 +63,7 @@ fmt:
 	@go run $(licenser) apply -r "ClavinJune/serve" 2> /dev/null
 
 release:
-	@GITHUB_TOKEN="${GITHUB_PAT}" go run $(releaser) release --rm-dist
+	@go run $(releaser) release --rm-dist
 
 snapshot:
-	@GITHUB_TOKEN="${GITHUB_PAT}" go run $(releaser) release --rm-dist --snapshot
+	@mkdir -p src/ && go run $(releaser) release --rm-dist --snapshot && rm -rf src/
