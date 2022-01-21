@@ -1,6 +1,6 @@
 # Serve
 
-[![Go Version](https://img.shields.io/static/v1?style=for-the-badge&label=Go+Version&message=1.17.3&color=blue&logo=go)](https://github.com/golang/go/releases/tag/go1.17.6)
+[![Go Version](https://img.shields.io/static/v1?style=for-the-badge&label=Go+Version&message=1.17.6&color=blue&logo=go)](https://github.com/golang/go/releases/tag/go1.17.6)
 [![Reference](https://img.shields.io/badge/reference-007d9c?style=for-the-badge&logo=go&logoColor=white&&labelColor=5c5c5c)](https://pkg.go.dev/github.com/ClavinJune/serve)
 [![Latest Release](https://img.shields.io/github/tag/ClavinJune/serve.svg?style=for-the-badge&logo=github)](https://github.com/ClavinJune/serve/releases/latest)
 [![Registry](https://img.shields.io/static/v1?style=for-the-badge&label=Registry&message=ghcr.io&color=red&logo=linux-containers)](https://ghcr.io/clavinjune/serve)
