@@ -23,6 +23,7 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"syscall"
 	"time"
@@ -30,8 +31,11 @@ import (
 	"github.com/ClavinJune/serve/internal"
 )
 
-const (
-	version string = "v0.3.9"
+var (
+	version = "dev"
+	buildBy = "dev"
+	commit  = "n/a"
+	date    = "0001-01-01 00:00:00 +0000 UTC"
 )
 
 var (
@@ -83,7 +87,10 @@ func mustGetServer(rootDir string, isSpa bool) *http.Server {
 
 func main() {
 	if *versionFlag {
-		fmt.Println("serve", version)
+		fmt.Printf("serve %s-%s %s/%s BuildBy=%s BuildDate=%s",
+			version, commit,
+			runtime.GOOS, runtime.GOARCH,
+			buildBy, date)
 		return
 	}
 

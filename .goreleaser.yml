@@ -16,51 +16,50 @@
 # Make sure to check the documentation at https://goreleaser.com
 archives:
   - format: binary
-    wrap_in_directory: false
+    wrap_in_directory: "false"
 before:
   hooks:
     - make check
 builds:
-  - id: amd64
-    env:
-      - CGO_ENABLED=0
-    goarch:
-      - amd64
-    goos:
-      - linux
-      - windows
-      - darwin
-    hooks:
-      post: upx -9 {{ .Path }}
-    ldflags:
-      - "-s -w"
-  - id: arm64
+  - &build
+    id: arm64
     env:
       - CGO_ENABLED=0
     goarch:
       - arm64
     goos:
-      - linux
       - darwin
+      - linux
     hooks:
       post: upx -9 {{ .Path }}
-    ldflags:
-      - "-s -w"
+  - <<: *build
+    id: amd64
+    goarch:
+      - amd64
+    goos:
+      - darwin
+      - linux
+      - windows
 checksum:
   name_template: 'checksums.txt'
 dockers:
   - build_flag_templates:
+    - "--label=org.opencontainers.image.authors=Clavin June"
     - "--label=org.opencontainers.image.created={{.Date}}"
-    - "--label=org.opencontainers.image.description={{.ReleaseNotes}}"
+    - "--label=org.opencontainers.image.description=A Lightweight HTTP Server Built on Top of Go"
+    - "--label=org.opencontainers.image.url=https://serve.clavinjune.dev"
     - "--label=org.opencontainers.image.revision={{.FullCommit}}"
     - "--label=org.opencontainers.image.source={{.GitURL}}"
     - "--label=org.opencontainers.image.title={{.ProjectName}}"
     - "--label=org.opencontainers.image.version={{.Version}}"
+    - "--label=org.opencontainers.image.base.name=gcr.io/distroless/static:latest-arm64@sha256:6017b5802f96702dd66066a351e6e84ab003b768042d83fdbfb5a1159824425a"
     image_templates:
       - "ghcr.io/clavinjune/serve:{{ .Version }}"
       - "ghcr.io/clavinjune/serve:{{ .ShortCommit }}"
       - "ghcr.io/clavinjune/serve:latest"
     skip_push: auto
+    goos: "linux"
+    goarch: "arm64"
     extra_files:
       - src/
 changelog:
