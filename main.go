@@ -32,18 +32,16 @@ import (
 )
 
 var (
-	version = "dev"
-	buildBy = "dev"
-	commit  = "n/a"
-	date    = "0001-01-01 00:00:00 +0000 UTC"
-)
-
-var (
 	portFlag    *int
 	quietFlag   *bool
 	rootFlag    *string
 	spaFlag     *bool
 	versionFlag *bool
+
+	version = "dev"
+	builtBy = "dev"
+	commit  = "n/a"
+	date    = "0001-01-01 00:00:00 +0000 UTC"
 )
 
 func init() {
@@ -90,7 +88,7 @@ func main() {
 		fmt.Printf("serve %s-%s %s/%s BuildBy=%s BuildDate=%s",
 			version, commit,
 			runtime.GOOS, runtime.GOARCH,
-			buildBy, date)
+			builtBy, date)
 		return
 	}
 
@@ -108,7 +106,7 @@ func main() {
 		if err := server.Serve(listener); err != nil && err != http.ErrServerClosed {
 			internal.LogFatal(err)
 		} else {
-			internal.Log("shutdowned gracefully")
+			internal.Log("shutdown gracefully")
 		}
 	}()
 
