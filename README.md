@@ -26,37 +26,37 @@ A Lightweight HTTP Server Built on Top of Go
 # chmod +x serve_{version}_{os}_{arch}
 $ chmod +x serve_0.3.8_linux_amd64
 $ ./serve_0.3.8_linux_amd64 -v
-serve v0.3.8
+serve v0.3.9
 ```
 
 ### Via Go Install
 
 ```bash
 $ go install github.com/ClavinJune/serve@latest
-go: downloading github.com/ClavinJune/serve v0.3.8
+go: downloading github.com/ClavinJune/serve v0.3.9
 $ serve -v
-serve v0.3.8
+serve v0.3.9
 ```
 
 ### Via Go Run
 
 ```bash
 $ go run github.com/ClavinJune/serve@latest -v
-serve v0.3.8
+serve v0.3.9
 ```
 
 ### Via Docker
 
 ```bash
 $ docker run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v0.3.8
+serve v0.3.9
 ```
 
 ### Via Podman
 
 ```bash
 $ podman run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v0.3.8
+serve v0.3.9
 ```
 
 ## Usage
