@@ -19,10 +19,11 @@
 
 version: 2
 updates:
-  - &update
-    package-ecosystem: "gomod"
-    directory: "/"
+  - package-ecosystem: "gomod" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-  - <<: *update
-    package-ecosystem: "docker"
+  - package-ecosystem: "docker" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
