@@ -16,36 +16,30 @@
 # Make sure to check the documentation at https://goreleaser.com
 archives:
   - format: binary
-    wrap_in_directory: false
+    wrap_in_directory: "false"
 before:
   hooks:
     - make check
 builds:
-  - id: amd64
-    env:
-      - CGO_ENABLED=0
-    goarch:
-      - amd64
-    goos:
-      - linux
-      - windows
-      - darwin
-    hooks:
-      post: upx -9 {{ .Path }}
-    ldflags:
-      - "-s -w"
-  - id: arm64
+  - &build
+    id: arm64
     env:
       - CGO_ENABLED=0
     goarch:
       - arm64
     goos:
-      - linux
       - darwin
+      - linux
     hooks:
       post: upx -9 {{ .Path }}
-    ldflags:
-      - "-s -w"
+  - <<: *build
+    id: amd64
+    goarch:
+      - amd64
+    goos:
+      - darwin
+      - linux
+      - windows
 checksum:
   name_template: 'checksums.txt'
 dockers:
