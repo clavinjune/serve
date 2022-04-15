@@ -24,9 +24,10 @@ A Lightweight HTTP Server Built on Top of Go
 
 ```bash
 # chmod +x serve_{version}_{os}_{arch}
-$ chmod +x serve_1.0.1_linux_amd64
-$ ./serve_1.0.1_linux_amd64 -v
-serve v1.0.1
+$ wget https://github.com/ClavinJune/serve/releases/download/v1.0.1/serve_1.0.1_darwin_arm64
+$ chmod +x serve_1.0.1_darwin_arm64
+./serve_1.0.1_darwin_arm64 -v
+serve 1.0.1-0d66413211647f62769a52854979cb84af398b62 darwin/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
 ### Via Go Install
@@ -35,28 +36,28 @@ serve v1.0.1
 $ go install github.com/ClavinJune/serve@latest
 go: downloading github.com/ClavinJune/serve v1.0.1
 $ serve -v
-serve v1.0.1
+serve dev-n/a darwin/arm64 BuildBy=dev BuildDate=0001-01-01 00:00:00 +0000 UTC
 ```
 
 ### Via Go Run
 
 ```bash
 $ go run github.com/ClavinJune/serve@latest -v
-serve v1.0.1
+serve dev-n/a darwin/arm64 BuildBy=dev BuildDate=0001-01-01 00:00:00 +0000 UTC
 ```
 
 ### Via Docker
 
 ```bash
-$ docker run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v1.0.1
+$ docker run --rm ghcr.io/clavinjune/serve:latest -v
+serve 1.0.1-0d66413211647f62769a52854979cb84af398b62 linux/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
 ### Via Podman
 
 ```bash
-$ podman run -it --rm ghcr.io/clavinjune/serve:latest -v
-serve v1.0.1
+$ podman run --rm ghcr.io/clavinjune/serve:latest -v
+serve 1.0.1-0d66413211647f62769a52854979cb84af398b62 linux/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
 ## Usage
@@ -76,7 +77,7 @@ Usage of serve:
 ## Example
 
 ```bash
-$ podman run -it --rm \
+$ podman run --rm \
 > -v /tmp/foo:/app/src \
 > -p 1313:1313 \
 > ghcr.io/clavinjune/serve:latest
