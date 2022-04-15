@@ -2,6 +2,7 @@
 
 [![Go Version](https://img.shields.io/static/v1?style=for-the-badge&label=Go+Version&message=1.18.1&color=blue&logo=go)](https://github.com/golang/go/releases/tag/go1.18.1)
 [![Reference](https://img.shields.io/badge/reference-007d9c?style=for-the-badge&logo=go&logoColor=white&&labelColor=5c5c5c)](https://pkg.go.dev/github.com/ClavinJune/serve)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ClavinJune/serve?style=for-the-badge)](https://goreportcard.com/report/github.com/ClavinJune/serve)
 [![Latest Release](https://img.shields.io/github/tag/ClavinJune/serve.svg?style=for-the-badge&logo=github)](https://github.com/ClavinJune/serve/releases/latest)
 [![Registry](https://img.shields.io/static/v1?style=for-the-badge&label=Registry&message=ghcr.io&color=red&logo=linux-containers)](https://ghcr.io/clavinjune/serve)
 [![License](https://img.shields.io/github/license/ClavinJune/serve?style=for-the-badge)](https://github.com/ClavinJune/serve/blob/main/LICENSE)
@@ -26,7 +27,7 @@ A Lightweight HTTP Server Built on Top of Go
 # chmod +x serve_{version}_{os}_{arch}
 $ wget https://github.com/ClavinJune/serve/releases/download/v1.0.1/serve_1.0.1_darwin_arm64
 $ chmod +x serve_1.0.1_darwin_arm64
-./serve_1.0.1_darwin_arm64 -v
+$ ./serve_1.0.1_darwin_arm64 -v
 serve 1.0.1-0d66413211647f62769a52854979cb84af398b62 darwin/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
