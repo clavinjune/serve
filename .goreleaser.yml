@@ -24,14 +24,20 @@ builds:
   - &build
     id: arm64
     env:
-      - CGO_ENABLED=0
+      - "CGO_ENABLED=0"
     goarch:
       - arm64
     goos:
-      - darwin
       - linux
     hooks:
       post: upx -9 {{ .Path }}
+  - <<: *build
+    id: arm64_non_upx
+    goos:
+      - darwin
+      - windows
+    hooks:
+      post:
   - <<: *build
     id: amd64
     goarch:
