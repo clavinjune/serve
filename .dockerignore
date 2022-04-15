@@ -21,6 +21,7 @@ LICENSE
 Makefile
 tools.mk
 
+.idea/
 .git/
 out/
 dist/
