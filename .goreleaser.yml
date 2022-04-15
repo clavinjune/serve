@@ -50,17 +50,22 @@ checksum:
   name_template: 'checksums.txt'
 dockers:
   - build_flag_templates:
+    - "--label=org.opencontainers.image.authors=Clavin June"
     - "--label=org.opencontainers.image.created={{.Date}}"
-    - "--label=org.opencontainers.image.description={{.ReleaseNotes}}"
+    - "--label=org.opencontainers.image.description=A Lightweight HTTP Server Built on Top of Go"
+    - "--label=org.opencontainers.image.url=https://serve.clavinjune.dev"
     - "--label=org.opencontainers.image.revision={{.FullCommit}}"
     - "--label=org.opencontainers.image.source={{.GitURL}}"
     - "--label=org.opencontainers.image.title={{.ProjectName}}"
     - "--label=org.opencontainers.image.version={{.Version}}"
+    - "--label=org.opencontainers.image.base.name=gcr.io/distroless/static:latest-arm64@sha256:6017b5802f96702dd66066a351e6e84ab003b768042d83fdbfb5a1159824425a"
     image_templates:
       - "ghcr.io/clavinjune/serve:{{ .Version }}"
       - "ghcr.io/clavinjune/serve:{{ .ShortCommit }}"
       - "ghcr.io/clavinjune/serve:latest"
     skip_push: auto
+    goos: "linux"
+    goarch: "arm64"
     extra_files:
       - src/
 changelog:
