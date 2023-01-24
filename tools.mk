@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-licenser := github.com/liamawhite/licenser@v0.6.0
-linter   := github.com/golangci/golangci-lint/cmd/golangci-lint@v1.45.2
-releaser := github.com/goreleaser/goreleaser@v1.7.0
+goimports   := golang.org/x/tools/cmd/goimports@latest
+govulncheck := golang.org/x/vuln/cmd/govulncheck@latest
+licenser    := github.com/liamawhite/licenser@v0.6.0
+linter      := github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+releaser    := github.com/goreleaser/goreleaser@v1.14.1

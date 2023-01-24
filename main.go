@@ -12,6 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Package main is the main package where serve is implemented
+// Usage of serve:
+//
+//	-p int
+//	  	port on which the server will listen (default 1313)
+//	-q	run server quietly
+//	-r string
+//	  	root document which the server will serve (default ".")
+//	-s	serve single page application
+//	-v	print current version
 package main
 
 import (
@@ -32,11 +42,12 @@ import (
 )
 
 var (
-	portFlag    *int
-	quietFlag   *bool
-	rootFlag    *string
-	spaFlag     *bool
-	versionFlag *bool
+	defaultReadTimeout = time.Minute
+	portFlag           *int
+	quietFlag          *bool
+	rootFlag           *string
+	spaFlag            *bool
+	versionFlag        *bool
 
 	version = "dev"
 	builtBy = "dev"
@@ -79,7 +90,8 @@ func mustGetListener(port int) net.Listener {
 
 func mustGetServer(rootDir string, isSpa bool) *http.Server {
 	return &http.Server{
-		Handler: internal.Handle(rootDir, isSpa),
+		Handler:     internal.Handle(rootDir, isSpa),
+		ReadTimeout: defaultReadTimeout,
 	}
 }
 
