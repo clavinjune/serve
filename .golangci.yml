@@ -14,7 +14,7 @@
 
 run:
   # https://github.com/golangci/golangci-lint/issues/2649
-  go: '1.17'
+  go: '1.19'
   # timeout for analysis, e.g. 30s, 5m, default is 1m
   deadline: 5m
 

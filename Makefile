@@ -47,6 +47,7 @@ check:
 	@go run $(releaser) check
 	@go run $(licenser) verify
 	@go run $(linter) run
+	@go run $(govulncheck) ./...
 
 ci/release:
 	@go run $(releaser) release --rm-dist
@@ -57,7 +58,7 @@ cleanup:
 
 fmt:
 	@gofmt -w -s .
-	@goimports -w .
+	@go run $(goimports) -w .
 	@go vet ./...
 	@go mod tidy
 	@go run $(licenser) apply -r "ClavinJune/serve" 2> /dev/null
