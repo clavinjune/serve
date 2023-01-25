@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM gcr.io/distroless/static:latest-arm64@sha256:59a12639776ac4711629733e0b84fcf8c790cced9e43a607cfae71ddc52b03a1
+FROM gcr.io/distroless/static:latest-arm64@sha256:d36f839e50b20cc0f8c732e6df796b80b3b089d1831983206db3c3f224400ba1
 WORKDIR /app
 COPY . .
 ENTRYPOINT [ "/app/serve", "-r", "/app/src" ]
