@@ -25,17 +25,17 @@ A Lightweight HTTP Server Built on Top of Go
 
 ```bash
 # chmod +x serve_{version}_{os}_{arch}
-$ wget https://github.com/clavinjune/serve/releases/download/v1.0.2/serve_1.0.2_darwin_arm64
-$ chmod +x serve_1.0.2_darwin_arm64
-$ ./serve_1.0.2_darwin_arm64 -v
-serve 1.0.2-0d66413211647f62769a52854979cb84af398b62 darwin/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
+$ wget https://github.com/clavinjune/serve/releases/download/v1.1.0/serve_1.1.0_darwin_arm64
+$ chmod +x serve_1.1.0_darwin_arm64
+$ ./serve_1.1.0_darwin_arm64 -v
+serve 1.1.0-0d66413211647f62769a52854979cb84af398b62 darwin/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
 ### Via Go Install
 
 ```bash
 $ go install github.com/clavinjune/serve@latest
-go: downloading github.com/clavinjune/serve v1.0.2
+go: downloading github.com/clavinjune/serve v1.1.0
 $ serve -v
 serve dev-n/a darwin/arm64 BuildBy=dev BuildDate=0001-01-01 00:00:00 +0000 UTC
 ```
@@ -51,14 +51,14 @@ serve dev-n/a darwin/arm64 BuildBy=dev BuildDate=0001-01-01 00:00:00 +0000 UTC
 
 ```bash
 $ docker run --rm ghcr.io/clavinjune/serve:latest -v
-serve 1.0.2-0d66413211647f62769a52854979cb84af398b62 linux/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
+serve 1.1.0-0d66413211647f62769a52854979cb84af398b62 linux/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
 ### Via Podman
 
 ```bash
 $ podman run --rm ghcr.io/clavinjune/serve:latest -v
-serve 1.0.2-0d66413211647f62769a52854979cb84af398b62 linux/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
+serve 1.1.0-0d66413211647f62769a52854979cb84af398b62 linux/arm64 BuildBy=goreleaser BuildDate=2022-04-15T22:09:06Z
 ```
 
 ## Usage
