@@ -1,4 +1,4 @@
-# Copyright 2021 ClavinJune/serve
+# Copyright 2025 clavinjune/serve
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ fmt:
 	@go run $(goimports) -w .
 	@go vet ./...
 	@go mod tidy
-	@go run $(licenser) apply -r "ClavinJune/serve" 2> /dev/null
+	@go run $(licenser) apply -r "clavinjune/serve" 2> /dev/null
 
 release:
 	@go run $(releaser) release --rm-dist

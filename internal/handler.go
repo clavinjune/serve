@@ -1,4 +1,4 @@
-// Copyright 2021 ClavinJune/serve
+// Copyright 2025 clavinjune/serve
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 package internal
 
 import (
+	"log/slog"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -66,6 +67,9 @@ func middleware(n http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
 		n(w, r)
-		Log(r.URL.Path, time.Since(start))
+		slog.LogAttrs(r.Context(), slog.LevelInfo, "",
+			slog.String("path", r.URL.Path),
+			slog.Duration("since", time.Since(start)),
+		)
 	}
 }

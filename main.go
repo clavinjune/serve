@@ -1,4 +1,4 @@
-// Copyright 2021 ClavinJune/serve
+// Copyright 2025 clavinjune/serve
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log/slog"
 	"net"
 	"net/http"
 	"os"
@@ -38,7 +39,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ClavinJune/serve/internal"
+	"github.com/clavinjune/serve/internal"
 )
 
 var (
@@ -67,11 +68,13 @@ func init() {
 func mustGetRootDirectory(dir string) string {
 	root, err := filepath.Abs(strings.TrimRight(dir, "/"))
 	if err != nil {
-		internal.LogFatal(err)
+		slog.LogAttrs(context.TODO(), slog.LevelError, err.Error())
+		os.Exit(1)
 	}
 
 	if _, err := os.Stat(root); err != nil {
-		internal.LogFatal(err)
+		slog.LogAttrs(context.TODO(), slog.LevelError, err.Error())
+		os.Exit(1)
 	}
 
 	return root
@@ -82,7 +85,8 @@ func mustGetListener(port int) net.Listener {
 
 	l, err := net.Listen("tcp", addr)
 	if err != nil {
-		internal.LogFatal(err)
+		slog.LogAttrs(context.TODO(), slog.LevelError, err.Error())
+		os.Exit(1)
 	}
 
 	return l
@@ -96,6 +100,8 @@ func mustGetServer(rootDir string, isSpa bool) *http.Server {
 }
 
 func main() {
+	ctx := context.TODO()
+
 	if *versionFlag {
 		fmt.Printf("serve %s-%s %s/%s BuildBy=%s BuildDate=%s",
 			version, commit,
@@ -104,32 +110,43 @@ func main() {
 		return
 	}
 
-	internal.LogSetQuite(*quietFlag)
+	level := slog.LevelInfo
+
+	if *quietFlag {
+		level = slog.LevelError
+	}
+
+	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
+		AddSource: true,
+		Level:     level,
+	})))
 
 	rootDir := mustGetRootDirectory(*rootFlag)
 	listener := mustGetListener(*portFlag)
 	server := mustGetServer(rootDir, *spaFlag)
 
 	go func() {
-		internal.LogF("listen and serve %s/ at http://0.0.0.0:%d",
-			rootDir,
-			*portFlag,
+		slog.LogAttrs(ctx, slog.LevelInfo,
+			"listen and serve",
+			slog.String("root", rootDir),
+			slog.Int("port", *portFlag),
 		)
 		if err := server.Serve(listener); err != nil && err != http.ErrServerClosed {
-			internal.LogFatal(err)
-		} else {
-			internal.Log("shutdown gracefully")
+			slog.LogAttrs(ctx, slog.LevelError, err.Error())
+			os.Exit(1)
 		}
+		slog.LogAttrs(ctx, slog.LevelInfo, "shutdown gracefully")
 	}()
 
 	stopSignal := make(chan os.Signal, 1)
 	signal.Notify(stopSignal, os.Interrupt, syscall.SIGTERM, syscall.SIGINT)
 	<-stopSignal
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
 
 	if err := server.Shutdown(ctx); err != nil {
-		internal.LogFatal(err)
+		slog.LogAttrs(ctx, slog.LevelError, err.Error())
+		os.Exit(1)
 	}
 }

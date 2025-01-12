@@ -1,4 +1,4 @@
-# Copyright 2021 ClavinJune/serve
+# Copyright 2025 clavinjune/serve
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +14,6 @@
 
 goimports   := golang.org/x/tools/cmd/goimports@latest
 govulncheck := golang.org/x/vuln/cmd/govulncheck@latest
-licenser    := github.com/liamawhite/licenser@v0.6.0
-linter      := github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+licenser    := github.com/liamawhite/licenser@latest
+linter      := github.com/golangci/golangci-lint/cmd/golangci-lint@v1.63.4
 releaser    := github.com/goreleaser/goreleaser@v1.14.1

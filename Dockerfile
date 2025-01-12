@@ -1,4 +1,4 @@
-# Copyright 2021 ClavinJune/serve
+# Copyright 2025 clavinjune/serve
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM gcr.io/distroless/static:latest-arm64@sha256:6e4fa5dc7eacc9f51fac13fb4080df3e9a8d1f8d3e7e57ce881f3e10fd237620
+FROM gcr.io/distroless/static:latest
 WORKDIR /app
 COPY . .
 ENTRYPOINT [ "/app/serve", "-r", "/app/src" ]
